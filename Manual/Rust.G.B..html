@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1">
+    <title>Rust.G.B. — Keep Talking and Nobody Explodes Module</title>
+    <link rel="stylesheet" type="text/css" href="css/font.css">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script src="js/ktane-utils.js"></script>
+    <style>
+        .dark table, table {
+            margin: 1em auto;
+            border: none;
+        }
+
+        ul.dashed {
+          list-style-type: none;
+        }
+        ul.dashed > li {
+          text-indent: -5px;
+        }
+        ul.dashed > li:before {
+          content: "- ";
+          text-indent: -5px;
+        }
+
+        .page-footer::before { content: 'Page '; }
+        .page-footer::after { content: ' of 3'; }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div class="page page-bg-01">
+            <div class="page-header">
+                <span class="page-header-doc-title">Keep Talking and Nobody Explodes Mod</span>
+                <span class="page-header-section-title">Rust.G.B.</span>
+            </div>
+            <div class="page-content">
+                <img src="img/Component/Rust.G.B..svg" class="diagram">
+                <h2>On the Subject of Rust.G.B.</h2>
+                <p class="flavour-text">1-2-4-1, no, 3-1-2-2...I’m lost</p>
+                <p>Using the methods and diagram on Page 2 & 3, find and set the 4 center lights to the correct pattern, then press the long button on the bottom to disarm the module.</p>
+                <br>
+                <p style="text-align:center"><b>---Determine Solution Pattern---</b></p>
+                <p>First, turn the serial code into 6 numbers, converting letters into numbers starting at 1 (A -> 1, B -> 2, etc.). Then, modulo all 6 numbers by 2 until you have a 6-digit code of 1s and 0s (ODD -> 1 // EVEN -> 0) (EXAMPLE: A2G85J -> 101010)</p>
+                <p>Next, split the code into 2 smaller codes. The MAIN code uses the odd positions, the SECONDARY uses the even (EXAMPLE: 101010 -> M: 111 S: 000)</p>
+                <p>Each code forms an RGB value, adding <span style="background-color: #FF000080">Red</span>, <span style="background-color: #00FF0080">Green</span>, and <span style="background-color: #0000FF80">Blue</span> respectively. Convert the color found in the module’s cage into this same sequence.</p>
+                <p>Modify the MAIN and SECONDARY codes by adding the <span style="background-color: #FF000080">Red</span>, <span style="background-color: #00FF0080">Green</span>, and <span style="background-color: #0000FF80">Blue</span> values from the caged value, converting 2s to 0s (XOR both codes with the caged code)<br>(EXAMPLE: if caged = <span style="background-color: #00FFFF">011</span> and MAIN = <span style="background-color: #FFFF00">110</span> -> Main = <span style="background-color: #FF00FF">101</span>)</p>
+                <p>Finally, locate the pattern (A 2x2 grid of letters) in the Venn Diagram using your <u>modified</u> main color. If the color’s condition is false, use the pattern from your modified second color, regardless of the condition.</p>
+                <p style="text-align:center"><b>---Determine Sets---</b></p>
+                <p>The top 4 buttons are each assigned a unique set from the chart below. Each set will cycle 3 lights between one of the 3 primary colors in RGB order.</p>
+                <table>
+                <tr><td style="font-size:15px;border-style: solid dotted none solid">1</td><td style="font-size:15px;border-style: solid solid solid dotted">TL-BL-BR // TR</td><td style="font-size:15px;border-style: solid dotted none solid">2</td><td style="font-size:15px;border-style: solid solid solid dotted">TL-TR-BR // BL</td><td style="font-size:15px;border-style: solid dotted none solid">3</td><td style="font-size:15px;border-style: solid solid solid dotted">TL-TR-BL // BR</td><td style="font-size:15px;border-style: solid dotted none solid">4</td><td style="font-size:15px;border-style: solid solid solid dotted">TR-BL-BR // TL</td></tr>
+                <tr><td style="font-size:15px;border-style: none dotted solid solid"></td><td style="font-size:15px;border-style: solid solid solid dotted;text-align:center">X-/<br>X-X</td><td style="font-size:15px;border-style: none dotted solid solid"></td><td style="font-size:15px;border-style: solid solid solid dotted;text-align:center">X-X<br>/-X</td><td style="font-size:15px;border-style: none dotted solid solid"></td><td style="font-size:15px;border-style: solid solid solid dotted;text-align:center">X-X<br>X-/</td><td style="font-size:15px;border-style: none dotted solid solid"></td><td style="font-size:15px;border-style: solid solid solid dotted;text-align:center">/-X<br>X-X</td></tr>
+                </table>
+                <p>NOTE: <b>X</b> are toggled lights, <b>/</b> are unaffected</p>
+            </div>
+            <div class="page-footer relative-footer">1</div>
+        </div>
+
+        <div class="page page-bg-02">
+            <div class="page-header">
+                <span class="page-header-doc-title">Keep Talking and Nobody Explodes Mod</span>
+                <span class="page-header-section-title">Rust.G.B.</span>
+            </div>
+            <div class="page-content">
+                <p style="text-align:center"><b>---Navigating to the Solution---</b></p>
+                <ul>
+                <li><b>START</b> - use the methods below to set all 4 LEDs to a solid color, aka your dominant color. You can use either set from the category</li>
+                <li><b>RGB SHIFT</b> - To shift all the colors in RGB order, click all 4 buttons <b><i>once in any order</i></b></li>
+                <li><b>SWAPPING</b> - Entering a method twice swaps the non-dominant color with the unused color<span style="color: #FF0000">*</span></li>
+                <li><b>INVERT</b> - the long buttons above the submit button will invert 2 LEDs, the left inverts the leading diagonals, the right inverts the opposite. The solution methods do not change and the button can be pressed whenever</li>
+                </ul>
+                <p style="text-align:center"><b>SOLUTION METHODS</b></p>
+                <table>
+                <tr><td style="border-style: solid none dashed solid;text-align:center">2 -> 3</td><td style="border-style: solid none dashed none;text-align:center">ROW</td><td style="border-style: solid solid dashed none;text-align:center">1 -> 4</td><td style="border-style: solid none dashed solid;text-align:center">1 -> 3</td><td style="border-style: solid none dashed none;text-align:center">COLUMN</td><td style="border-style: solid solid dashed none;text-align:center">2 -> 4</td><td style="border-style: solid none dashed solid;text-align:center">1 -> 2</td><td style="border-style: solid none dashed none;text-align:center">DIAGONAL</td><td style="border-style: solid solid dashed none;text-align:center">3 -> 4</td></tr>
+                <tr><td style="border-style: dashed none solid solid;text-align:center">D-D<br>N-N</td><td style="border-style: dashed none solid none"></td><td style="border-style: dashed solid solid none;text-align:center">N-N<br>D-D</td><td style="border-style: dashed none solid solid;text-align:center">D-N<br>D-N</td><td style="border-style: dashed none solid none"></td><td style="border-style: dashed solid solid none;text-align:center">N-D<br>N-D</td><td style="border-style: dashed none solid solid;text-align:center">D-N<br>N-D</td><td style="border-style: dashed none solid none"></td><td style="border-style: dashed solid solid none;text-align:center">N-D<br>D-N</td></tr>
+                <tr><td colspan= "3" style="border-style: solid solid none solid;background-color: #D3D3D3;text-align:center">--NOTES--</td><td colspan= "6" style="background-color: #D3D3D3;border-style: solid solid dashed solid;text-align:center">--KEY--</td></tr>
+                <tr><td colspan= "3" style="border-style: none solid solid solid;background-color: #D3D3D3;text-align:center">[N] is the next color<br>after [D] in RGB order.<br>White Pairs only use 1<br>method.</td><td colspan= "6" style="background-color: #D3D3D3;border-style: dashed solid solid solid;text-align:center">D - Dominant // N - Non-dominant<br>U - Unused 3rd primary // W -White<br># -> # - SET A -> SET B</td></tr>
+                <tr><td colspan= "3" style="border-style: solid solid dashed solid;text-align:center">WHITE PAIRS</td><td colspan= "2" style="text-align:center">ROWS</td><td colspan= "2" style="text-align:center">COLUMNS</td><td colspan= "2" style="text-align:center">DIAGONALS</td></tr>
+                <tr><td colspan= "2" rowspan="3" style="border-style: dashed solid solid solid;text-align:left">To set [N] colors<br>to white:<br>- start with the<br>[Start] method<br>- push one of<br>the remaining<br>sets <u>twice</u><span style="color: #FF0000">**</span></td><td style="text-align:center">Start</td><td style="text-align:center">2 -> 3</td><td style="text-align:center">1 -> 4</td><td style="text-align:center">1 -> 3</td><td style="text-align:center">2 -> 4</td><td style="text-align:center">1 -> 2</td><td style="text-align:center">3 -> 4</td></tr>
+                <tr><td style="text-align:center">Lower<br>Set</td><td style="text-align:center">U-D<br>W-W</td><td style="text-align:center">W-W<br>D-U</td><td style="text-align:center">U-W<br>D-W</td><td style="text-align:center">W-D<br>W-U</td><td style="text-align:center">U-W<br>W-D</td><td style="text-align:center">W-D<br>U-W</td></tr>
+                <tr><td style="text-align:center">Higher<br>Set</td><td style="text-align:center">D-U<br>W-W</td><td style="text-align:center">W-W<br>U-D</td><td style="text-align:center">D-W<br>U-W</td><td style="text-align:center">W-U<br>W-D</td><td style="text-align:center">D-W<br>W-U</td><td style="text-align:center">W-U<br>D-W</td></tr>
+                </table>
+            </div>
+            <div class="page-footer relative-footer">2</div>
+        </div>
+
+        <div class="page page-bg-02">
+            <div class="page-header">
+                <span class="page-header-doc-title">Keep Talking and Nobody Explodes Mod</span>
+                <span class="page-header-section-title">Rust.G.B.</span>
+            </div>
+            <div class="page-content">
+                <p style="text-align:center"><b>VENN DIAGRAM</b></p>
+                <div style="position:relative;">
+                    <img src="img/Venn Diagram/RGB_Lights_Venn.png" style="width:100%;height:100%; position:relative; top:10px">
+                    <img src="img/Venn Diagram/RustGB_Note.png" style="width:30%;height:30%; position:relative; top:-710px">
+                </div>
+            </div>
+            <div class="page-footer relative-footer">3</div>
+        </div>
+    </div>
+</body>
+</html>

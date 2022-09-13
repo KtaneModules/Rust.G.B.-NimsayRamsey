@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 615501dbe4f3fe94fbf4b564abb10237, type: 3}
+  m_Name: ModConfig
+  m_EditorClassIdentifier: 
+  id: rustGB
+  title: Rust.G.B.
+  author: Nimsay Ramsey
+  description: "An odd, rusty panel with odd, rusty lights. Sure took a beating\n\nModule
+    ID [rustGB]\nPDF/HTML Link coming soon\n\nThe screw model was borrowed from The
+    Screw\nAdditional Credits:\n> Kilo Bites: Converting project into single module;
+    Colorblind and Twitch plays support\r; General help\n> BigCrunch22: Converting
+    my Google Doc into an HTML manual\r\n> GhostSalt: Manual Graphics"
+  version: 1
+  outputFolder: build
+  previewImage: {fileID: 2800000, guid: 1e645c59253d36b42bdc7d83d8e3f1b3, type: 3}
