@@ -15,10 +15,11 @@ MonoBehaviour:
   title: Rust.G.B.
   author: Nimsay Ramsey
   description: "An odd, rusty panel with odd, rusty lights. Sure took a beating\n\nModule
-    ID [rustGB]\nPDF/HTML Link coming soon\n\nThe screw model was borrowed from The
-    Screw\nAdditional Credits:\n> Kilo Bites: Converting project into single module;
-    Colorblind and Twitch plays support\r; General help\n> BigCrunch22: Converting
-    my Google Doc into an HTML manual\r\n> GhostSalt: Manual Graphics"
+    ID [rustGB]\nHTML: https://ktane.timwi.de/HTML/Rust.G.B..html\r\nPDF: https://ktane.timwi.de/PDF/Rust.G.B..pdf\n\nThe
+    screw model was borrowed from The Screw\nAdditional Credits:\n> Kilo Bites: Converting
+    project into single module; Colorblind and Twitch plays support\r; General help\n>
+    BigCrunch22: Converting my Google Doc into an HTML manual\r (Ver 1)\n> GhostSalt:
+    Manual Graphics (Module)\n> luminoscitytim: Manual Graphics (Venn Diagram)"
   version: 1
   outputFolder: build
   previewImage: {fileID: 2800000, guid: 1e645c59253d36b42bdc7d83d8e3f1b3, type: 3}

@@ -12,18 +12,25 @@
         .dark table, table {
             margin: 1em auto;
             border: none;
+            text-align: center;
         }
 
-        ul.dashed {
-          list-style-type: none;
+        svg { width: 100%; }
+        .dark svg text.inv { fill: #DDD; }
+
+        .red { background-color: #FF000080; }
+        .green { background-color: #00FF0080; }
+        .blue { background-color: #0000FF80; }
+        .mag { background-color: #F0F; }
+        .cyan { background-color: #0FF; }
+        .yel { background-color: #FF0; }
+
+        .red, .green, .blue, .cyan, .mag, .yel {
+            padding: 2px 2px 0;
         }
-        ul.dashed > li {
-          text-indent: -5px;
-        }
-        ul.dashed > li:before {
-          content: "- ";
-          text-indent: -5px;
-        }
+        .cyan, .mag, .yel { color: #000; }
+        .gray { background-color: #D3D3D3; }
+        .dark .gray { background-color: #444; }
 
         .page-footer::before { content: 'Page '; }
         .page-footer::after { content: ' of 3'; }
@@ -40,21 +47,33 @@
                 <img src="img/Component/Rust.G.B..svg" class="diagram">
                 <h2>On the Subject of Rust.G.B.</h2>
                 <p class="flavour-text">1-2-4-1, no, 3-1-2-2...I’m lost</p>
-                <p>Using the methods and diagram on Page 2 & 3, find and set the 4 center lights to the correct pattern, then press the long button on the bottom to disarm the module.</p>
-                <br>
-                <p style="text-align:center"><b>---Determine Solution Pattern---</b></p>
-                <p>First, turn the serial code into 6 numbers, converting letters into numbers starting at 1 (A -> 1, B -> 2, etc.). Then, modulo all 6 numbers by 2 until you have a 6-digit code of 1s and 0s (ODD -> 1 // EVEN -> 0) (EXAMPLE: A2G85J -> 101010)</p>
-                <p>Next, split the code into 2 smaller codes. The MAIN code uses the odd positions, the SECONDARY uses the even (EXAMPLE: 101010 -> M: 111 S: 000)</p>
-                <p>Each code forms an RGB value, adding <span style="background-color: #FF000080">Red</span>, <span style="background-color: #00FF0080">Green</span>, and <span style="background-color: #0000FF80">Blue</span> respectively. Convert the color found in the module’s cage into this same sequence.</p>
-                <p>Modify the MAIN and SECONDARY codes by adding the <span style="background-color: #FF000080">Red</span>, <span style="background-color: #00FF0080">Green</span>, and <span style="background-color: #0000FF80">Blue</span> values from the caged value, converting 2s to 0s (XOR both codes with the caged code)<br>(EXAMPLE: if caged = <span style="background-color: #00FFFF">011</span> and MAIN = <span style="background-color: #FFFF00">110</span> -> Main = <span style="background-color: #FF00FF">101</span>)</p>
-                <p>Finally, locate the pattern (A 2x2 grid of letters) in the Venn Diagram using your <u>modified</u> main color. If the color’s condition is false, use the pattern from your modified second color, regardless of the condition.</p>
-                <p style="text-align:center"><b>---Determine Sets---</b></p>
-                <p>The top 4 buttons are each assigned a unique set from the chart below. Each set will cycle 3 lights between one of the 3 primary colors in RGB order.</p>
-                <table>
-                <tr><td style="font-size:15px;border-style: solid dotted none solid">1</td><td style="font-size:15px;border-style: solid solid solid dotted">TL-BL-BR // TR</td><td style="font-size:15px;border-style: solid dotted none solid">2</td><td style="font-size:15px;border-style: solid solid solid dotted">TL-TR-BR // BL</td><td style="font-size:15px;border-style: solid dotted none solid">3</td><td style="font-size:15px;border-style: solid solid solid dotted">TL-TR-BL // BR</td><td style="font-size:15px;border-style: solid dotted none solid">4</td><td style="font-size:15px;border-style: solid solid solid dotted">TR-BL-BR // TL</td></tr>
-                <tr><td style="font-size:15px;border-style: none dotted solid solid"></td><td style="font-size:15px;border-style: solid solid solid dotted;text-align:center">X-/<br>X-X</td><td style="font-size:15px;border-style: none dotted solid solid"></td><td style="font-size:15px;border-style: solid solid solid dotted;text-align:center">X-X<br>/-X</td><td style="font-size:15px;border-style: none dotted solid solid"></td><td style="font-size:15px;border-style: solid solid solid dotted;text-align:center">X-X<br>X-/</td><td style="font-size:15px;border-style: none dotted solid solid"></td><td style="font-size:15px;border-style: solid solid solid dotted;text-align:center">/-X<br>X-X</td></tr>
-                </table>
-                <p>NOTE: <b>X</b> are toggled lights, <b>/</b> are unaffected</p>
+                <p>Using the diagram & methods on Page 2 & 3, find and set the 4 center lights to the correct pattern, then press the long button on the bottom to disarm the module.</p>
+                <ul>
+                    <li>Turn the serial code into 6 numbers, converting letters into numbers starting at 1 <u>(A -> 1)</u></li>
+                    <li>Modulo all 6 numbers by 2 until you have a 6-digit code of 1s and 0s
+                        <ul>
+                            <li>EXAMPLE: A2G85J -> 101010</li>
+                        </ul>
+                    </li>
+                    <li>Next, split the code into 2 smaller codes. The MAIN code uses the odd positions, the SECONDARY uses the even
+                        <ul>
+                            <li>EXAMPLE: 101010 -> M: 111 S: 000</li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li>Each code forms an RGB value, adding <span class="red">#</span>Red, <span class="green">#</span>Green, and <span class="blue">#</span>Blue respectively. Convert the color found in the module’s cage into this same sequence.</li>
+                </ul>
+                <ul>
+                    <li>Modify the MAIN and SECONDARY codes by adding the <span class="red">#</span>Red, <span class="green">#</span>Green, and <span class="blue">#</span>Blue values from the caged value, converting 2s to 0s (XOR both codes with the caged code).
+                        <ul>
+                            <li>EXAMPLE: if caged = <span class="cyan">#</span>011 and MAIN = <span class="yel">#</span>110 -> Main = <span class="mag">#</span>101</li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li>Finally, locate the pattern (A 2×2 grid of letters) in the Venn Diagram using your <u>modified</u> main color. If the color’s condition is false, use the pattern from your modified second color, regardless of the condition.</li>
+                </ul>
             </div>
             <div class="page-footer relative-footer">1</div>
         </div>
@@ -65,24 +84,85 @@
                 <span class="page-header-section-title">Rust.G.B.</span>
             </div>
             <div class="page-content">
-                <p style="text-align:center"><b>---Navigating to the Solution---</b></p>
-                <ul>
-                <li><b>START</b> - use the methods below to set all 4 LEDs to a solid color, aka your dominant color. You can use either set from the category</li>
-                <li><b>RGB SHIFT</b> - To shift all the colors in RGB order, click all 4 buttons <b><i>once in any order</i></b></li>
-                <li><b>SWAPPING</b> - Entering a method twice swaps the non-dominant color with the unused color<span style="color: #FF0000">*</span></li>
-                <li><b>INVERT</b> - the long buttons above the submit button will invert 2 LEDs, the left inverts the leading diagonals, the right inverts the opposite. The solution methods do not change and the button can be pressed whenever</li>
-                </ul>
-                <p style="text-align:center"><b>SOLUTION METHODS</b></p>
-                <table>
-                <tr><td style="border-style: solid none dashed solid;text-align:center">2 -> 3</td><td style="border-style: solid none dashed none;text-align:center">ROW</td><td style="border-style: solid solid dashed none;text-align:center">1 -> 4</td><td style="border-style: solid none dashed solid;text-align:center">1 -> 3</td><td style="border-style: solid none dashed none;text-align:center">COLUMN</td><td style="border-style: solid solid dashed none;text-align:center">2 -> 4</td><td style="border-style: solid none dashed solid;text-align:center">1 -> 2</td><td style="border-style: solid none dashed none;text-align:center">DIAGONAL</td><td style="border-style: solid solid dashed none;text-align:center">3 -> 4</td></tr>
-                <tr><td style="border-style: dashed none solid solid;text-align:center">D-D<br>N-N</td><td style="border-style: dashed none solid none"></td><td style="border-style: dashed solid solid none;text-align:center">N-N<br>D-D</td><td style="border-style: dashed none solid solid;text-align:center">D-N<br>D-N</td><td style="border-style: dashed none solid none"></td><td style="border-style: dashed solid solid none;text-align:center">N-D<br>N-D</td><td style="border-style: dashed none solid solid;text-align:center">D-N<br>N-D</td><td style="border-style: dashed none solid none"></td><td style="border-style: dashed solid solid none;text-align:center">N-D<br>D-N</td></tr>
-                <tr><td colspan= "3" style="border-style: solid solid none solid;background-color: #D3D3D3;text-align:center">--NOTES--</td><td colspan= "6" style="background-color: #D3D3D3;border-style: solid solid dashed solid;text-align:center">--KEY--</td></tr>
-                <tr><td colspan= "3" style="border-style: none solid solid solid;background-color: #D3D3D3;text-align:center">[N] is the next color<br>after [D] in RGB order.<br>White Pairs only use 1<br>method.</td><td colspan= "6" style="background-color: #D3D3D3;border-style: dashed solid solid solid;text-align:center">D - Dominant // N - Non-dominant<br>U - Unused 3rd primary // W -White<br># -> # - SET A -> SET B</td></tr>
-                <tr><td colspan= "3" style="border-style: solid solid dashed solid;text-align:center">WHITE PAIRS</td><td colspan= "2" style="text-align:center">ROWS</td><td colspan= "2" style="text-align:center">COLUMNS</td><td colspan= "2" style="text-align:center">DIAGONALS</td></tr>
-                <tr><td colspan= "2" rowspan="3" style="border-style: dashed solid solid solid;text-align:left">To set [N] colors<br>to white:<br>- start with the<br>[Start] method<br>- push one of<br>the remaining<br>sets <u>twice</u><span style="color: #FF0000">**</span></td><td style="text-align:center">Start</td><td style="text-align:center">2 -> 3</td><td style="text-align:center">1 -> 4</td><td style="text-align:center">1 -> 3</td><td style="text-align:center">2 -> 4</td><td style="text-align:center">1 -> 2</td><td style="text-align:center">3 -> 4</td></tr>
-                <tr><td style="text-align:center">Lower<br>Set</td><td style="text-align:center">U-D<br>W-W</td><td style="text-align:center">W-W<br>D-U</td><td style="text-align:center">U-W<br>D-W</td><td style="text-align:center">W-D<br>W-U</td><td style="text-align:center">U-W<br>W-D</td><td style="text-align:center">W-D<br>U-W</td></tr>
-                <tr><td style="text-align:center">Higher<br>Set</td><td style="text-align:center">D-U<br>W-W</td><td style="text-align:center">W-W<br>U-D</td><td style="text-align:center">D-W<br>U-W</td><td style="text-align:center">W-U<br>W-D</td><td style="text-align:center">D-W<br>W-U</td><td style="text-align:center">W-U<br>D-W</td></tr>
-                </table>
+                <h4 class="centered">VENN DIAGRAM</h4>
+                <svg xmlns="http://www.w3.org/2000/svg" style="width:100%" viewBox="0 0 1005 1047.9">
+                  <style>
+                    .st0{fill:red}.st1{fill:#00f}.st6{fill:#fff}.st8{font-size:40px}.st9{font-size:37px}.st11{font-size:29px}.st12{font-size:32px}.st13{font-size:25px}.st14{font-size:23px}.st16{font-size:22.9564px}
+                  </style>
+                  <circle cx="332.4" cy="430.8" r="315.5"/>
+                  <path class="st0" d="M519.6 373.4a314 314 0 0 1 157.2-41.8c57.5 0 111.4 15.4 157.9 42.2v-3a316 316 0 1 0-632.2 0v.9A314.8 314.8 0 0 1 359.6 330c58.4 0 113 15.8 160 43.4z"/>
+                  <path class="st1" d="M834.7 373.8a315.9 315.9 0 0 1-159 271.4v.9a316 316 0 0 1-158.9 274.3 316.1 316.1 0 1 0 317.9-546.6z"/>
+                  <path class="st0" d="M519.6 373.4a315.7 315.7 0 0 1 156.1 271.8 315.9 315.9 0 0 0 159-271.4 315 315 0 0 0-157.9-42.2 315 315 0 0 0-157.2 41.8z"/>
+                  <path d="M519.6 373.4a315.7 315.7 0 0 1 156.1 271.8 315.9 315.9 0 0 0 159-271.4 315 315 0 0 0-157.9-42.2 315 315 0 0 0-157.2 41.8z" fill="#f0f"/>
+                  <path d="M360.7 647.7v-3a316.2 316.2 0 0 1-158.2-273 316.2 316.2 0 0 0 314.3 548.7 316 316 0 0 1-156.1-272.7z" fill="#0f0"/>
+                  <path class="st0" d="M360.7 644.7a315.9 315.9 0 0 1 158.8-271.3A315.5 315.5 0 0 0 359.6 330a314.8 314.8 0 0 0-157.1 41.7 316.2 316.2 0 0 0 158.2 273z"/>
+                  <path d="M360.7 644.7a315.9 315.9 0 0 1 158.8-271.3A315.5 315.5 0 0 0 359.6 330a314.8 314.8 0 0 0-157.1 41.7 316.2 316.2 0 0 0 158.2 273z" fill="#ff0"/>
+                  <path class="st1" d="M675.7 646.1v-.9a314.8 314.8 0 0 1-157.1 41.7 315 315 0 0 1-157.9-42.2v3a316.2 316.2 0 0 0 156.1 272.7 316 316 0 0 0 158.9-274.3z"/>
+                  <path d="M675.7 646.1v-.9a314.8 314.8 0 0 1-157.1 41.7 315 315 0 0 1-157.9-42.2v3a316.2 316.2 0 0 0 156.1 272.7 316 316 0 0 0 158.9-274.3z" fill="#0ff"/>
+                  <path class="st0" d="M519.6 373.4a316 316 0 0 0-158.9 271.3 315 315 0 0 0 157.9 42.2c57.2 0 110.8-15.2 157.1-41.7-.3-115.8-63-217-156.1-271.8z"/>
+                  <path class="st1" d="M519.6 373.4a316 316 0 0 0-158.9 271.3 315 315 0 0 0 157.9 42.2c57.2 0 110.8-15.2 157.1-41.7-.3-115.8-63-217-156.1-271.8z"/>
+                  <path class="st6" d="M519.6 373.4a316 316 0 0 0-158.9 271.3 315 315 0 0 0 157.9 42.2c57.2 0 110.8-15.2 157.1-41.7-.3-115.8-63-217-156.1-271.8z"/>
+                  <text transform="translate(485 299)" class="st8">W, Y</text>
+                  <text transform="translate(485 347)" class="st8">K, R</text>
+                  <text transform="translate(675.7 537.2)" class="st8">B, C</text>
+                  <text transform="translate(675.7 585.2)" class="st8">Y, R</text>
+                  <text transform="translate(297.3 551.3)" class="st9">G, M</text>
+                  <text transform="translate(299.3 595.7)" class="st9">Y, B</text>
+                  <text transform="translate(743.9 843.3)" class="st6 st8">C, W</text>
+                  <text transform="translate(743.9 891.3)" class="st6 st8">B, K</text>
+                  <text transform="translate(480.4 832)" class="st8">W, K</text>
+                  <text transform="translate(480.4 880)" class="st8">M, B</text>
+                  <text transform="translate(245.6 843.3)" class="st8">Y, G</text>
+                  <text transform="translate(245.6 891.3)" class="st8">G, Y</text>
+                  <text transform="translate(476.5 481.3)" class="st8">C, W</text>
+                  <text transform="translate(476.5 529.3)" class="st8">W, Y</text>
+                  <text transform="translate(22.9 415)" class="st6 st8">K, R</text>
+                  <text transform="translate(22.9 463)" class="st6 st8">B, K</text>
+                  <text transform="translate(785.6 60.8)" class="st8 inv">CODE</text>
+                  <text transform="translate(760 108.8)" class="st8 inv">[</text>
+                  <text transform="translate(772.4 108.8)" class="st0 st8">R</text>
+                  <text transform="translate(797.9 108.8)" class="st8 inv">, </text>
+                  <text transform="translate(823.1 108.8)" class="st8" fill="#00c100">G</text>
+                  <text transform="translate(847.7 108.8)" class="st8 inv">, </text>
+                  <text transform="translate(872.9 108.8)" class="st1 st8">B</text>
+                  <text transform="translate(897 108.8)" class="st8 inv">]</text>
+                  <text transform="translate(374.2 134)" class="st8">Bomb contains</text>
+                  <text transform="translate(426.4 182)" class="st8">5 or more</text>
+                  <text transform="translate(421.4 230)" class="st8">batteries</text>
+                  <text transform="translate(695.7 667)" class="st6 st11">Number of modules</text>
+                  <text transform="translate(679.2 701.8)" class="st6 st11">whose name contains</text>
+                  <text transform="translate(725.4 736.6)" class="st6 st11">“wire” is even</text>
+                  <text transform="translate(124.2 637)" class="st12">At least 1</text>
+                  <text transform="translate(52.9 675.4)" class="st12">indicator labeled</text>
+                  <text transform="translate(128.6 713.8)" class="st12">SND, CLR,</text>
+                  <text transform="translate(113.7 752.2)" class="st12">SIG, or NSA</text>
+                  <text transform="translate(399 604.3)" class="st12">Caged light is</text>
+                  <text transform="translate(377.1 642.7)" class="st12">Primary or White</text>
+                  <text transform="rotate(-46.6 408.6 81.7)" class="st6 st11">Caged light is</text>
+                  <text transform="rotate(-46.6 467.1 106.3)" class="st6 st11">Secondary or Black</text>
+                  <text transform="translate(427.5 722.5)" class="st13">Caged light is</text>
+                  <text transform="translate(401 752.5)" class="st13">opposite of either</text>
+                  <text transform="translate(407.5 782.5)" class="st13">unmodified codes</text>
+                  <text transform="translate(620.8 373.8)" class="st13">Bomb contains</text>
+                  <text transform="translate(607.8 403.8)" class="st13">2 or more DVI-D,</text>
+                  <text transform="translate(652.2 433.8)" class="st13">RJ-45, or</text>
+                  <text transform="translate(651.2 463.8)" class="st13">RCA ports</text>
+                  <text transform="translate(228.5 375)" class="st14">All 3 unmodified</text>
+                  <text transform="translate(215.8 402.5)" class="st14">codes collectively</text>
+                  <text transform="translate(221.7 430.1)" class="st14">contain at least 1</text>
+                  <text transform="translate(258.8 457.7)" class="st14">RED, GREEN,</text>
+                  <text transform="translate(275.5 485.3)" class="st14">and BLUE</text>
+                  <text transform="translate(267.2 513)" class="st14">component</text>
+                  <path d="M739 235.1h126.3M312.7 48.4v299.2M820 400.2h85.2M644.3 999.8v-350M517.3 999.8v-96.4M391.5 999.8v-57.3M894.4 449.6h51.2M202.5 48.4v102.9" stroke="gray" stroke-width="3"/>
+                  <text transform="translate(875.8 245.7)" class="st16 inv">Red</text>
+                  <text transform="translate(280.1 39.1)" class="st16 inv">Yellow</text>
+                  <text transform="translate(908.5 407.4)" class="st16 inv">Magenta</text>
+                  <text transform="translate(614 1026.3)" class="st16 inv">White</text>
+                  <text transform="translate(358.7 1026.3)" class="st16 inv">Green</text>
+                  <text transform="translate(489 1026.3)" class="st16 inv">Cyan</text>
+                  <text transform="translate(950.7 456.8)" class="st16 inv">Blue</text>
+                  <text transform="translate(174.3 39.1)" class="st16 inv">Black</text>
+                </svg>
             </div>
             <div class="page-footer relative-footer">2</div>
         </div>
@@ -90,14 +170,95 @@
         <div class="page page-bg-02">
             <div class="page-header">
                 <span class="page-header-doc-title">Keep Talking and Nobody Explodes Mod</span>
-                <span class="page-header-section-title">Rust.G.B.</span>
+                <span class="page-header-section-title">Appendix 111</span>
             </div>
             <div class="page-content">
-                <p style="text-align:center"><b>VENN DIAGRAM</b></p>
-                <div style="position:relative;">
-                    <img src="img/Venn Diagram/RGB_Lights_Venn.png" style="width:100%;height:100%; position:relative; top:10px">
-                    <img src="img/Venn Diagram/RustGB_Note.png" style="width:30%;height:30%; position:relative; top:-710px">
-                </div>
+                <h2>Appendix 111: Solution Notes & Methods</h2>
+                <p class="flavour-text">Because of <u>course</u> it's not that simple</p>
+                <p>The top 4 buttons are each assigned a unique set from the chart below, used for the methods chart at the bottom. Each set will cycle 3 lights (<b>X</b>) between one of the 3 primary colors in RGB order.</p>
+                <table style="font-size:15px">
+                    <tr>
+                        <td style="border-style: solid dotted solid solid">1</td>
+                        <td style="border-style: solid solid solid dotted">X-/<br>X-X</td>
+                        <td style="border-style: solid dotted solid solid">2</td>
+                        <td style="border-style: solid solid solid dotted">X-X<br>/-X</td>
+                        <td style="border-style: solid dotted solid solid">3</td>
+                        <td style="border-style: solid solid solid dotted">X-X<br>X-/</td>
+                        <td style="border-style: solid dotted solid solid">4</td>
+                        <td style="border-style: solid solid solid dotted">/-X<br>X-X</td>
+                    </tr>
+                </table>
+                <ul>
+                    <li><b>START</b> - Every method below starts with all 4 LEDs set to 1 color (referred to as the <u>dominant color</u>, or <b>D</b>)</li>
+                    <li><b>RGB SHIFT</b> - To shift all the colors in RGB order, click all 4 buttons <b><i>once</i></b> in any order</li>
+                    <li><b>SWAPPING</b> - Entering a method twice swaps the non-dominant color with the unused color<span style="color: #FF0000">*</span></li>
+                    <li><b>INVERT</b> - the long buttons above the submit button will invert 2 LEDs, the left inverts the major diagonal (<u>TL/BR</u>), the right inverts the minor. The solution methods do not change and the button can be pressed whenever</li>
+                </ul>
+                <h4 class="centered">SOLUTION METHODS</h4>
+                <table style="margin-top:0">
+                    <tr>
+                        <td style="border-style: solid none dashed solid">2 -> 3</td>
+                        <td style="border-style: solid none dashed none">ROW</td>
+                        <td style="border-style: solid solid dashed none">1 -> 4</td>
+                        <td style="border-style: solid none dashed solid">1 -> 3</td>
+                        <td style="border-style: solid none dashed none">COLUMN</td>
+                        <td style="border-style: solid solid dashed none">2 -> 4</td>
+                        <td style="border-style: solid none dashed solid">1 -> 2</td>
+                        <td style="border-style: solid none dashed none">DIAGONAL</td>
+                        <td style="border-style: solid solid dashed none">3 -> 4</td>
+                    </tr>
+                    <tr>
+                        <td style="border-style: dashed none solid solid">D-D<br>N-N</td>
+                        <td style="border-style: dashed none solid none"></td>
+                        <td style="border-style: dashed solid solid none">N-N<br>D-D</td>
+                        <td style="border-style: dashed none solid solid">D-N<br>D-N</td>
+                        <td style="border-style: dashed none solid none"></td>
+                        <td style="border-style: dashed solid solid none">N-D<br>N-D</td>
+                        <td style="border-style: dashed none solid solid">D-N<br>N-D</td>
+                        <td style="border-style: dashed none solid none"></td>
+                        <td style="border-style: dashed solid solid none">N-D<br>D-N</td>
+                    </tr>
+                    <tr class="gray">
+                        <td colspan= "3" style="border-style: solid solid none solid">--NOTES--</td>
+                        <td colspan= "6" style="border-style: solid solid dashed solid">--KEY--</td>
+                    </tr>
+                    <tr class="gray">
+                        <td colspan= "3" style="border-style: none solid solid solid">[N] is the next color<br>after [D] in RGB order.<br>White Pairs only use 1<br>method.</td>
+                        <td colspan= "6" style="border-style: dashed solid solid solid">D - Dominant // N - Non-dominant<br>U - Unused 3rd primary // W -White<br># -> # - SET A -> SET B</td>
+                    </tr>
+                    <tr>
+                        <td colspan= "3" style="border-style: solid solid dashed solid">WHITE PAIRS</td>
+                        <td colspan= "2">ROWS</td>
+                        <td colspan= "2">COLUMNS</td>
+                        <td colspan= "2">DIAGONALS</td>
+                    </tr>
+                    <tr>
+                        <td colspan= "2" rowspan="3" style="border-style: dashed solid solid solid;text-align:left">To set [N] colors<br>to white:<br>- start with the<br>[Start] method<br>- push one of<br>the remaining<br>sets <u>twice</u></td>
+                        <td>Start</td><td>2 -> 3</td>
+                        <td>1 -> 4</td><td>1 -> 3</td>
+                        <td>2 -> 4</td><td>1 -> 2</td>
+                        <td>3 -> 4</td>
+                    </tr>
+                    <tr>
+                        <td>Lower<br>Set</td>
+                        <td>U-D<br>W-W</td>
+                        <td>W-W<br>D-U</td>
+                        <td>U-W<br>D-W</td>
+                        <td>W-D<br>W-U</td>
+                        <td>U-W<br>W-D</td>
+                        <td>W-D<br>U-W</td>
+                    </tr>
+                    <tr>
+                        <td>Higher<br>Set</td>
+                        <td>D-U<br>W-W</td>
+                        <td>W-W<br>U-D</td>
+                        <td>D-W<br>U-W</td>
+                        <td>W-U<br>W-D</td>
+                        <td>D-W<br>W-U</td>
+                        <td>W-U<br>D-W</td>
+                    </tr>
+                </table>
+                <p><span style="color: #FF0000">*Also applies to white pairs</span></p>
             </div>
             <div class="page-footer relative-footer">3</div>
         </div>
