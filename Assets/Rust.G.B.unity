@@ -247,6 +247,11 @@ Prefab:
       propertyPath: AudioClips.Array.data[3]
       value: 
       objectReference: {fileID: 8300000, guid: 02514b0ed8ade994fbaa686b6f12c339, type: 3}
+    - target: {fileID: 114848120511536268, guid: 8814ea52310d2614a9feda02ec355ae4,
+        type: 2}
+      propertyPath: FrontFaceOnly
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8814ea52310d2614a9feda02ec355ae4, type: 2}
   m_IsPrefabParent: 0
@@ -292,6 +297,11 @@ Prefab:
     - target: {fileID: 1905979380585592, guid: d408f39e916bb864a87742c3f9bbf130, type: 2}
       propertyPath: m_Name
       value: Rust.G.B
+      objectReference: {fileID: 0}
+    - target: {fileID: 114993287646324646, guid: d408f39e916bb864a87742c3f9bbf130,
+        type: 2}
+      propertyPath: _colorblindMode
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d408f39e916bb864a87742c3f9bbf130, type: 2}

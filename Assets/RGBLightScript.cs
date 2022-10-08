@@ -24,6 +24,8 @@ public class RGBLightScript : MonoBehaviour {
 	public TextMesh cageLEDCBText;
 	public TextMesh[] cbTexts;
 
+	public GameObject ColorblindDisplays;
+
 	private string[] cbColors = new string[] { "", "R", "G", "B", "C", "M", "Y", "" };
 
 	//-----------------------------------------------------//
@@ -124,6 +126,8 @@ public class RGBLightScript : MonoBehaviour {
 		toggleButtons[1].OnInteract += delegate () { ToggleAlt(1); return false; };
 
 		cbActive = Colorblind.ColorblindModeActive;
+
+		if (cbActive) {ColorblindDisplays.SetActive(true);} else {ColorblindDisplays.SetActive(false);}
 	}
 
 	void Start() {
