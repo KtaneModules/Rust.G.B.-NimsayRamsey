@@ -1,3 +1,6 @@
+NOTE: I couldn't be bothered to change the README for now. Maybe another time
+NOTE 2: This is my first module. Enjoy
+
 Community fork of the KTaNE Modkit.
 
 The [original (official) modkit](https://github.com/keeptalkinggame/ktanemodkit) isn't going to receive updates anymore. This is the fork that will be maintained from now on.
